@@ -1,0 +1,12 @@
+{
+  "bracketSameLine": true,
+  "jsxSingleQuote": true,
+  "plugins": ["prettier-plugin-tailwindcss", "prettier-plugin-sort-json"],
+  "printWidth": 80,
+  "semi": true,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "tailwindConfig": "./tailwind.config.ts",
+  "tailwindFunctions": ["tv"],
+  "trailingComma": "es5"
+}
