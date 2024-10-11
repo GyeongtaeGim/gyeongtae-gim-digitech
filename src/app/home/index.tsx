@@ -2,10 +2,23 @@ import MainSectionScene from './main-section-scene';
 import CareerCard from './career-card';
 import CareerSectionScene from './career-section-scene';
 import WebDeveloperScene from './web-developer-scene';
+import { useRef } from 'react';
+import { useProgress } from '@react-three/drei';
+import { AnimatePresence, motion } from 'framer-motion';
 
 export default function HomePage() {
+  const { progress } = useProgress();
+  const webDeveloperRef = useRef<HTMLElement>(null);
   return (
     <main>
+      <AnimatePresence>
+        {progress < 100 && (
+          <motion.div
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className='fixed left-0 top-0 h-[100vh] w-[100vw] bg-black text-white'></motion.div>
+        )}
+      </AnimatePresence>
       <section className='p-[80px] max-md:p-[16px]'>
         <div className='relative flex h-[80vh] min-h-[400px] items-center justify-center overflow-hidden rounded-3xl'>
           <MainSectionScene />
@@ -74,52 +87,54 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <section className='relative h-[300vh] bg-black text-white'>
+      <section
+        ref={webDeveloperRef}
+        className='relative h-[300vh] bg-black text-white'>
         <div className='sticky left-0 top-0 h-[100vh] w-full'>
-          <WebDeveloperScene />
+          <WebDeveloperScene container={webDeveloperRef} />
         </div>
-        <div className='absolute top-0 flex h-full w-full flex-col items-center justify-center gap-48'>
-          <h1 className='text-9xl'>We connect the world</h1>
-
-          <div className='flex max-w-[700px] flex-col items-start'>
-            <h2 className='text-4xl'>우리는 웹으로 세상을 연결합니다.</h2>
-            <p>
-              웹은 정보 교환의 핵심 도구입니다. 웹 브라우저를 통해 다양한
-              사이트에서 정보를 검색하고 공유합니다. 최근에는 모바일 앱, 정부
-              시스템, 인프라 관리 등 광범위한 분야에서 웹 기술이 활용되고
-              있습니다. 심지어 게임 개발에도 웹 기술이 적용되고 있습니다.
-            </p>
-            <p>
-              인터넷을 통해서 가게에 배달 주문을 하고, 택시를 부르고, 사랑하는
-              사람들에게 안부를 전하고, 새로운 소식을 듣기도 합니다. 서로
-              연결되어있지 않은 세상을 웹으로 연결합니다. 여러분들이 거대한 서버
-              프레임과 클라우드 인프라 속에 점차 성장하고 있는 ChatGPT와
-              연결되는 것도 모두 웹 기술 덕분입니다.
-            </p>
+        <div className='absolute top-0 flex h-full w-full flex-col items-center justify-center'>
+          <div className='flex h-[100vh] items-center justify-center'>
+            <h1 className='text-9xl'>We connect the world</h1>
           </div>
-          <div className='flex max-w-[700px] flex-col items-start'>
-            <h2 className='text-4xl'>연결은 세상을 움직이는 힘입니다.</h2>
-            <p>
-              웹 개발자들이 조직이 일하는 방식을 완전히 새롭게 바꾸고 있습니다.
-            </p>
-            <p>
-              웹 개발자는 단순히 웹 서비스를 개발하는 것을 넘어, 조직과 제품의
-              프로세스와 문화를 혁신하는 중요한 역할을 수행합니다. 엔지니어로서
-              안정적인 서비스 개발과 고객 피드백의 신속한 반영을 위해 최적의
-              업무 방식을 고민합니다. 업무를 작은 단위로 나누고, 효율적인 방식을
-              선택하며, 반복 업무를 공통화하는 특성은 타 직군의 업무 프로세스
-              개선에도 영향을 미칩니다. 이로 인해 개발자 고용이 증가하고,
-              개발자들이 사용하는 업무도구(노션, 슬랙, 지라 등)가 비개발자
-              직군에도 빠르게 확산되고 있습니다.
-            </p>
+          <div className='flex h-[80vh] w-full items-center justify-start p-24'>
+            <div className='flex max-w-[700px] flex-col items-start'>
+              <h2 className='text-4xl'>우리는 웹으로 세상을 연결합니다.</h2>
+              <p>
+                웹은 정보 교환의 핵심 도구입니다. 웹 브라우저를 통해 다양한
+                사이트에서 정보를 검색하고 공유합니다. 최근에는 모바일 앱, 정부
+                시스템, 인프라 관리 등 광범위한 분야에서 웹 기술이 활용되고
+                있습니다. 심지어 게임 개발에도 웹 기술이 적용되고 있습니다.
+              </p>
+              <p>
+                인터넷을 통해서 가게에 배달 주문을 하고, 택시를 부르고, 사랑하는
+                사람들에게 안부를 전하고, 새로운 소식을 듣기도 합니다. 서로
+                연결되어있지 않은 세상을 웹으로 연결합니다. 여러분들이 거대한
+                서버 프레임과 클라우드 인프라 속에 점차 성장하고 있는 ChatGPT와
+                연결되는 것도 모두 웹 기술 덕분입니다.
+              </p>
+            </div>
+          </div>
+          <div className='flex h-[80vh] w-full items-center justify-end p-24'>
+            <div className='flex max-w-[700px] flex-col items-start'>
+              <h2 className='text-4xl'>연결은 세상을 움직이는 힘입니다.</h2>
+              <p>
+                웹 개발자들이 조직이 일하는 방식을 완전히 새롭게 바꾸고
+                있습니다.
+              </p>
+              <p>
+                웹 개발자는 단순히 웹 서비스를 개발하는 것을 넘어, 조직과 제품의
+                프로세스와 문화를 혁신하는 중요한 역할을 수행합니다.
+                엔지니어로서 안정적인 서비스 개발과 고객 피드백의 신속한 반영을
+                위해 최적의 업무 방식을 고민합니다. 업무를 작은 단위로 나누고,
+                효율적인 방식을 선택하며, 반복 업무를 공통화하는 특성은 타
+                직군의 업무 프로세스 개선에도 영향을 미칩니다. 이로 인해 개발자
+                고용이 증가하고, 개발자들이 사용하는 업무도구(노션, 슬랙, 지라
+                등)가 비개발자 직군에도 빠르게 확산되고 있습니다.
+              </p>
+            </div>
           </div>
         </div>
-      </section>
-      <section className='flex flex-col items-center'>
-        <h1 className='text-9xl'>School life</h1>
-      </section>
-      <section className='flex flex-col items-center'>
-        <h1 className='text-9xl'>Why?</h1>
       </section>
     </main>
   );

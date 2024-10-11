@@ -31,6 +31,8 @@ const connectors = [
   { color: '#4060ff', roughness: 0.1, accent: true },
 ];
 
+useGLTF.preload('/c-transformed.glb');
+
 export default function MainSectionScene() {
   return (
     <Canvas
