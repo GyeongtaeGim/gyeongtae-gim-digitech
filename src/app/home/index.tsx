@@ -19,17 +19,19 @@ export default function HomePage() {
             className='fixed left-0 top-0 h-[100vh] w-[100vw] bg-black text-white'></motion.div>
         )}
       </AnimatePresence>
-      <section className='p-[80px] max-md:p-[16px]'>
+      <section className='p-[68px] max-md:p-[16px]'>
         <div className='relative flex h-[80vh] min-h-[400px] items-center justify-center overflow-hidden rounded-3xl'>
           <MainSectionScene />
           <div className='absolute flex flex-col items-end text-white'>
-            <h1 className='text-9xl'>Web Developer</h1>
+            <h1 className='text-9xl max-lg:text-7xl max-md:text-5xl'>
+              Web Developer
+            </h1>
             <p className='font-semibolds text-4xl'>Gyeongtae Gim</p>
           </div>
         </div>
       </section>
       <section className='relative'>
-        <div className='flex flex-col items-center justify-center gap-24 px-[80px] py-[160px] max-md:p-[16px]'>
+        <div className='flex flex-col items-center justify-center gap-24 px-[80px] py-[160px] max-md:px-[16px] max-md:py-[64px]'>
           <CareerCard
             company='FESCARO'
             duration='2018-2022'
@@ -95,9 +97,11 @@ export default function HomePage() {
         </div>
         <div className='absolute top-0 flex h-full w-full flex-col items-center justify-center'>
           <div className='flex h-[100vh] items-center justify-center'>
-            <h1 className='text-9xl'>We connect the world</h1>
+            <h1 className='text-center text-9xl max-lg:text-7xl'>
+              We connect the world
+            </h1>
           </div>
-          <div className='flex h-[80vh] w-full items-center justify-start p-24'>
+          <div className='flex h-[80vh] w-full items-center justify-start p-24 [text-shadow:_0_1px_12px_black] max-md:p-12'>
             <div className='flex max-w-[700px] flex-col items-start'>
               <h2 className='text-4xl'>우리는 웹으로 세상을 연결합니다.</h2>
               <p>
@@ -115,7 +119,7 @@ export default function HomePage() {
               </p>
             </div>
           </div>
-          <div className='flex h-[80vh] w-full items-center justify-end p-24'>
+          <div className='flex h-[80vh] w-full items-center justify-end p-24 [text-shadow:_0_1px_12px_black] max-md:p-12'>
             <div className='flex max-w-[700px] flex-col items-start'>
               <h2 className='text-4xl'>연결은 세상을 움직이는 힘입니다.</h2>
               <p>

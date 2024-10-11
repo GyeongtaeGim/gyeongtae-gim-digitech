@@ -5,5 +5,6 @@
 @layer base {
   html {
     font-family: 'Questrial', system-ui, sans-serif;
+    min-width: 375px;
   }
 }

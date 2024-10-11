@@ -13,7 +13,7 @@ interface CareerCardProps {
 }
 
 const careerCardVariants = tv({
-  base: 'flex w-full max-w-[1000px] items-center gap-16',
+  base: 'flex w-full max-w-[1000px] items-center gap-16 max-md:flex-col max-md:items-start max-md:gap-8',
   variants: {
     reserved: {
       true: 'flex-row-reverse',
@@ -35,7 +35,7 @@ export default function CareerCard({
       whileInView='whileInView'
       exit='initial'
       className={careerCardVariants({ reserved })}
-      viewport={{ amount: 1 }}>
+      viewport={{ amount: 1, margin: '100px' }}>
       <div className='flex flex-1 flex-col gap-4'>
         <div>
           <div className='overflow-hidden'>
