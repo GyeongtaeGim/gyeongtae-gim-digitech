@@ -2,21 +2,61 @@ import MainSectionScene from './main-section-scene';
 import CareerCard from './career-card';
 import CareerSectionScene from './career-section-scene';
 import WebDeveloperScene from './web-developer-scene';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useProgress } from '@react-three/drei';
-import { AnimatePresence, motion } from 'framer-motion';
+import {
+  AnimatePresence,
+  motion,
+  useSpring,
+  useTransform,
+} from 'framer-motion';
+
+function AnimatedNumber({ value }: { value: number }) {
+  const spring = useSpring(value, { mass: 0.8, stiffness: 75, damping: 15 });
+  const display = useTransform(spring, (current) =>
+    Math.round(current).toLocaleString()
+  );
+
+  useEffect(() => {
+    spring.set(value);
+  }, [spring, value]);
+
+  return (
+    <motion.p className='text-9xl'>
+      <motion.span>{display}</motion.span>
+      <span>%</span>
+    </motion.p>
+  );
+}
 
 export default function HomePage() {
   const { progress } = useProgress();
+  const [complate, setComplate] = useState(false);
   const webDeveloperRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (progress === 100) {
+      const timeout = setTimeout(() => {
+        setComplate(true);
+      }, 1500);
+      return () => {
+        clearTimeout(timeout);
+      };
+    }
+  }, [progress]);
+
   return (
     <main>
       <AnimatePresence>
-        {progress < 100 && (
+        {!complate && (
           <motion.div
+            key='progress'
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className='fixed left-0 top-0 h-[100vh] w-[100vw] bg-black text-white'></motion.div>
+            transition={{ duration: 0.3 }}
+            className='fixed left-0 top-0 z-10 flex h-[100vh] w-[100vw] items-end justify-start bg-black text-start text-white'>
+            <AnimatedNumber value={progress} />
+          </motion.div>
         )}
       </AnimatePresence>
       <section className='p-[68px] max-md:p-[16px]'>
