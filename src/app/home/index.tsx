@@ -10,6 +10,7 @@ import {
   useSpring,
   useTransform,
 } from 'framer-motion';
+import SchoolLifeScene from './school-life-scene';
 
 function AnimatedNumber({ value }: { value: number }) {
   const spring = useSpring(value, { mass: 0.8, stiffness: 75, damping: 15 });
@@ -145,39 +146,57 @@ export default function HomePage() {
             <div className='flex max-w-[700px] flex-col items-start'>
               <h2 className='text-4xl'>우리는 웹으로 세상을 연결합니다.</h2>
               <p>
-                웹은 정보 교환의 핵심 도구입니다. 웹 브라우저를 통해 다양한
-                사이트에서 정보를 검색하고 공유합니다. 최근에는 모바일 앱, 정부
-                시스템, 인프라 관리 등 광범위한 분야에서 웹 기술이 활용되고
-                있습니다. 심지어 게임 개발에도 웹 기술이 적용되고 있습니다.
+                웹은 정보 교환의 핵심 도구입니다. 웹 브라우저를 통해 정보를
+                검색하고 공유합니다. 최근에는 모바일 앱, 정부 시스템, 인프라
+                관리, 심지어 게임 개발에도 웹 기술이 활용되고 있습니다.
               </p>
               <p>
-                인터넷을 통해서 가게에 배달 주문을 하고, 택시를 부르고, 사랑하는
-                사람들에게 안부를 전하고, 새로운 소식을 듣기도 합니다. 서로
-                연결되어있지 않은 세상을 웹으로 연결합니다. 여러분들이 거대한
-                서버 프레임과 클라우드 인프라 속에 점차 성장하고 있는 ChatGPT와
-                연결되는 것도 모두 웹 기술 덕분입니다.
+                웹은 인터넷을 통해 일상생활의 다양한 활동을 연결합니다. 배달
+                주문, 택시 호출, 소통, 정보 공유 등이 가능해졌습니다.
+                ChatGPT와의 연결도 웹 기술 덕분입니다.
               </p>
             </div>
           </div>
           <div className='flex h-[80vh] w-full items-center justify-end p-24 [text-shadow:_0_1px_12px_black] max-md:p-12'>
             <div className='flex max-w-[700px] flex-col items-start'>
-              <h2 className='text-4xl'>연결은 세상을 움직이는 힘입니다.</h2>
+              <h2 className='text-4xl'>웹은 세상을 변화시키고 있습니다.</h2>
+              <p>웹 개발자들은 조직의 업무 방식을 혁신하고 있습니다.</p>
               <p>
-                웹 개발자들이 조직이 일하는 방식을 완전히 새롭게 바꾸고
-                있습니다.
-              </p>
-              <p>
-                웹 개발자는 단순히 웹 서비스를 개발하는 것을 넘어, 조직과 제품의
-                프로세스와 문화를 혁신하는 중요한 역할을 수행합니다.
-                엔지니어로서 안정적인 서비스 개발과 고객 피드백의 신속한 반영을
-                위해 최적의 업무 방식을 고민합니다. 업무를 작은 단위로 나누고,
-                효율적인 방식을 선택하며, 반복 업무를 공통화하는 특성은 타
-                직군의 업무 프로세스 개선에도 영향을 미칩니다. 이로 인해 개발자
-                고용이 증가하고, 개발자들이 사용하는 업무도구(노션, 슬랙, 지라
-                등)가 비개발자 직군에도 빠르게 확산되고 있습니다.
+                웹 개발자는 서비스 개발을 넘어 조직의 프로세스와 문화를
+                변화시킵니다. 안정적인 서비스와 신속한 고객 피드백 반영을 위해
+                최적의 업무 방식을 고안합니다. 업무의 세분화, 효율적 방식 선택,
+                반복 작업 공통화는 타 직군의 프로세스 개선에도 영향을 줍니다.
+                이로 인해 개발자 고용이 늘고, 개발자 업무도구가 비개발 직군에도
+                확산되고 있습니다.
               </p>
             </div>
           </div>
+        </div>
+      </section>
+      <section className='relative flex min-h-[100vh] items-center justify-center p-16 max-md:px-10 max-md:py-16'>
+        <div className='absolute left-0 top-0 z-[-1] h-full w-full'>
+          <SchoolLifeScene />
+        </div>
+        <div className='grid grid-cols-[max-content_1fr] gap-x-12 gap-y-16 max-lg:grid-cols-1 max-md:gap-y-6'>
+          <h2 className='text-5xl max-md:text-2xl'>
+            그래픽 아티스트로 시작해,
+            <br />웹 개발자가 되다.
+          </h2>
+          <ul>
+            <li>유년 시절 프로그래밍과 게임 개발을 간접적으로 경험</li>
+            <li>중학교때 게임 그래픽 아티스트를 꿈꾸고 학교에 진학</li>
+            <li>다양한 공모전 활동으로 웹 개발에 흥미를 느끼기 시작</li>
+            <li>3D 그래픽 아티스트에서 웹 개발자로 진로 변경</li>
+          </ul>
+          <h3 className='text-end text-3xl max-lg:text-start max-md:text-2xl'>
+            출전 및 외부 활동
+          </h3>
+          <ul>
+            <li>2017 SK Planet SmarteenAppChallenge</li>
+            <li>2018 SK Planet SmarteenAppChallenge</li>
+            <li>2017~2019 공간정보 컨퍼런스</li>
+            <li>해외 문화 체험 프로그램</li>
+          </ul>
         </div>
       </section>
     </main>
