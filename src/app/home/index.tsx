@@ -11,6 +11,7 @@ import {
   useTransform,
 } from 'framer-motion';
 import SchoolLifeScene from './school-life-scene';
+import EnginearCradleScene from './enginear-cradle-scene';
 
 function AnimatedNumber({ value }: { value: number }) {
   const spring = useSpring(value, { mass: 0.8, stiffness: 75, damping: 15 });
@@ -152,8 +153,8 @@ export default function HomePage() {
               </p>
               <p>
                 웹은 인터넷을 통해 일상생활의 다양한 활동을 연결합니다. 배달
-                주문, 택시 호출, 소통, 정보 공유 등이 가능해졌습니다.
-                ChatGPT와의 연결도 웹 기술 덕분입니다.
+                주문, 택시 호출, 정보 공유 등이 가능해졌습니다. ChatGPT와의
+                연결도 웹 기술 덕분입니다.
               </p>
             </div>
           </div>
@@ -197,6 +198,27 @@ export default function HomePage() {
             <li>2017~2019 공간정보 컨퍼런스</li>
             <li>해외 문화 체험 프로그램</li>
           </ul>
+        </div>
+      </section>
+      <section className='relative flex min-h-[100vh] flex-col items-center justify-center p-10'>
+        <div className='absolute left-0 top-0 z-[-1] h-full w-full'>
+          <EnginearCradleScene />
+        </div>
+        <div className='flex flex-col items-center justify-center gap-16 max-md:gap-12'>
+          <h2 className='text-7xl max-md:text-5xl'>Engineer's Cradle</h2>
+          <div className='grid grid-cols-[max-content_1fr] gap-16 max-lg:grid-cols-1 max-md:gap-8'>
+            <h3 className='text-xl'>
+              기술이 바뀌어도
+              <br />
+              경험은 불변합니다.
+            </h3>
+            <p className='max-w-[600px]'>
+              기술과 도구는 변하지만, 그 원리와 경험은 지속됩니다. 이는 IT
+              업계에서 장기적으로 성공하기 위한 핵심 요소입니다. 엔지니어의
+              가치는 다양한 상황에서 적절한 해결책을 선택하고 적용할 수 있는
+              능력에 달려 있습니다.
+            </p>
+          </div>
         </div>
       </section>
     </main>
