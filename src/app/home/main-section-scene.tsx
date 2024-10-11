@@ -127,7 +127,7 @@ function Connector({
   const api = useRef<RapierRigidBody>(null);
   const pos = useMemo(
     () => position || new Three.Vector3(r(10), r(10), r(10)),
-    []
+    [position, r]
   );
 
   useFrame((_, delta) => {
