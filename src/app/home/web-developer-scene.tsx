@@ -254,7 +254,6 @@ function Scroll({ container }: WebDeveloperSceneProps) {
   const posY = useTransform(scrollYProgress, [0, 1], [-4, -4.5]);
 
   useFrame(({ camera }) => {
-    console.log(scrollYProgress.get());
     if (!(camera instanceof Three.PerspectiveCamera)) return;
     camera.fov = fov.get();
     camera.position.setY(posY.get());
